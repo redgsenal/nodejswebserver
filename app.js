@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require("path");
 var app = express();
 var bodyParser = require('body-parser')
 var APP_PORT = 3000;
@@ -9,7 +10,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  console.log('display home page');
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 app.listen(APP_PORT, function () {
@@ -18,7 +20,11 @@ app.listen(APP_PORT, function () {
 
 app.post('/message', function(req, res){
 	console.log("post here");
-	var param1 = req.body.param1;
-	console.log('param1 ' + param1);
-	res.send('Got a POST request');
+	var param = req.body.param;
+	console.log('param ' + param);	
+	if (param){
+		var jsonParam = JSON.parse(param);
+		console.log(jsonParam);
+	}
+	res.send("POST /message " + param);
 });

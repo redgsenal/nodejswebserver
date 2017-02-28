@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/redgsenal/nodejswebserver/issues"
   },
-  "homepage": "https://github.com/redgsenal/nodejswebserver#readme"
+  "homepage": "https://github.com/redgsenal/nodejswebserver#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
 }

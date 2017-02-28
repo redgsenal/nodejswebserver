@@ -1,0 +1,25 @@
+{
+  "name": "nodejswebserver",
+  "version": "1.0.0",
+  "description": "an in-between web server for IoT stuff",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://redgsenal:*santosantoN1N0@github.com/redgsenal/nodejswebserver.git"
+  },
+  "keywords": [
+    "IoT",
+    "ESP8266",
+    "arduino",
+    "nano"
+  ],
+  "author": "reggie.senal@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redgsenal/nodejswebserver/issues"
+  },
+  "homepage": "https://github.com/redgsenal/nodejswebserver#readme"
+}

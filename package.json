@@ -20,7 +20,11 @@
   "homepage": "https://github.com/redgsenal/nodejswebserver#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
-    "express": "^4.14.1"
+    "bower": "^1.8.0",
+    "express": "^4.14.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "socket.io": "^1.7.3"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

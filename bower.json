@@ -1,0 +1,24 @@
+{
+  "name": "nodejswebserver",
+  "description": "an in-between web server for IoT stuff",
+  "main": "app.js",
+  "authors": [
+    "reggie.senal@gmail.com"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "IoT",
+    "ESP8266",
+    "arduino",
+    "nano"
+  ],
+  "homepage": "https://github.com/redgsenal/nodejswebserver",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

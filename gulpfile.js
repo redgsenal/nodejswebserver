@@ -1,27 +1,41 @@
 const gulp = require('gulp');
 const clean = require('gulp-clean');
+const sass = require('gulp-sass');
+const runSequence = require('run-sequence');
 
 gulp.task('bootstrap_css', ()=>{
 	gulp.src('bower_components/bootstrap/dist/css/*.min.css')
-    .pipe(gulp.dest('public/css/bootstrap'));
+	.pipe(gulp.dest('public/css/bootstrap'));
 });
 
 gulp.task('bootstrap_js', ()=>{
 	gulp.src('bower_components/bootstrap/dist/js/*.min.js')
-    .pipe(gulp.dest('public/js/bootstrap'));
+	.pipe(gulp.dest('public/js/bootstrap'));
 });
 
-gulp.task('bootstrap', ['bootstrap_css', 'bootstrap_js']);
+gulp.task('js', ['jquery', 'bootstrap_js'], ()=>{
+	gulp.src('src/js/*.js')
+	.pipe(gulp.dest('public/js/'));
+});
 
 gulp.task('jquery', ()=>{
-	gulp.src('bower_components/jquery/dist/*')
-    .pipe(gulp.dest('public/js/jquery'));
+	gulp.src('bower_components/jquery/dist/*.js')
+	.pipe(gulp.dest('public/js/jquery'));
 });
+
+gulp.task('sass', ()=>{
+	return gulp.src('src/scss/**/*.scss')
+	.pipe(sass().on('error', sass.logError))
+	.pipe(gulp.dest('public/css'));
+});
+
+gulp.task('assets', ['js', 'sass', 'bootstrap_css']);
 
 gulp.task('clean', ()=>{
-  gulp.src('public/')
-  .pipe(clean());
+	gulp.src(['public/js/**', 'public/css/**'])
+	.pipe(clean());
 });
 
-gulp.task('default', ['clean', 'bootstrap'], ()=>{	
+gulp.task('default', ['clean'], ()=>{
+	runSequence('assets');
 });

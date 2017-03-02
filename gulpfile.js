@@ -23,13 +23,18 @@ gulp.task('jquery', ()=>{
 	.pipe(gulp.dest('public/js/jquery'));
 });
 
+gulp.task('fonts', ()=>{
+	gulp.src('src/fonts/*')
+	.pipe(gulp.dest('public/css/fonts/'));
+});
+
 gulp.task('sass', ()=>{
 	return gulp.src('src/scss/**/*.scss')
 	.pipe(sass().on('error', sass.logError))
 	.pipe(gulp.dest('public/css'));
 });
 
-gulp.task('assets', ['js', 'sass', 'bootstrap_css']);
+gulp.task('assets', ['js', 'fonts', 'sass', 'bootstrap_css']);
 
 gulp.task('clean', ()=>{
 	gulp.src(['public/js/**', 'public/css/**'])

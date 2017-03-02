@@ -4,8 +4,9 @@ var app = express();
 var bodyParser = require('body-parser')
 var APP_PORT = 3000;
 var dtNow = new Date();
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use( bodyParser.json() );
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -14,16 +15,22 @@ log("Server started on port " + APP_PORT);
 
 app.get('/', function (req, res) {
   log('display home page');
-  res.sendFile(path.join(__dirname+'/index.html'));
+  //res.sendFile(path.join(__dirname+'/index.html'));
+  res.render('pages/index');
+});
+
+app.get('/about', function (req, res) {
+  //res.sendFile(path.join(__dirname+'/remote.html'));
+  res.render('pages/about');
 });
 
 app.get('/remote', function (req, res) {
-  log('display home page');
-  res.sendFile(path.join(__dirname+'/remote.html'));
+  //res.sendFile(path.join(__dirname+'/remote.html'));
+  res.render('pages/remote');
 });
 
 app.listen(APP_PORT, function () {
-  console.log('app started --> listening on port ' + APP_PORT);
+  console.log('app started --> listening on port ', APP_PORT);
 });
 
 /** recieves messages or commands */
